@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      background:linear-gradient(to right, #0f2027,#203a43,#2c5364);
+      font-family: 'poppins' sans-serif;
+    }
+    form{
+      width: 300px;
+      margin: 20vh auto 0 auto;
+      padding: 60px;
+      background-color: whitesmoke;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    #form button{
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      color: white;
+      background-color: rgb(41, 57,194);
+      border: none;
+      border-radius: 4px;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+    }
+    form input{
+      border: 2px solid #f0f0f0;
+      border-radius: 4px;
+      display: block;
+      font-size: 12px;
+      padding: 10px;
+      width: 100%;
+    }
+    .success input {
+      border-color: #09c372;
+    }
+
+    .error input {
+      border-color: #ff3860;
+    }
+
+  </style>
+  <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <label for="titre">Titre</label>
+        <input id="titre" name="titre" type="text">
+        <p id="error"></p>
+
+        <label for="auteur">Auteur</label>
+        <input id="auteur" name="auteur" type="text">
+        <div class="error"></div>
+
+        <label for="prix">Prix</label>
+        <input id="prix" name="prix" type="text">
+        <div class="error"></div>
+
+        <label for="date de publication">Date de publication</label>
+        <input id="date-de-publication" name="date de publication" type="text">
+        <div class="error"></div>
+
+        <label for="langue">Langue</label>
+        <input id="langue" name="langue" type="text">
+        <div class="error"></div>
+
+        <label for="type">Type</label>
+        <input id="type" name="type" type="text">
+        <div class="error"></div>
+      <button type="submit"> Ajouter</button>
+    </form>
+  </div>
+
+  <script>
+    var titre = document.getElementById('titre');
+    var auteur = document.getElementById('auteur');
+    var prix = document.getElementById('prix');
+    var date = document.getElementById('date-de-publication');
+    var langue = document.getElementById('langue');
+    var type = document.getElementById('type');
+    var E=document.getElementById("error");
+    var form = document.getElementById('form');
+    
+
+    form.addEventListener('submit', function eVent(){
+
+      if( titre.innerHTML == ""){
+        E.innerHTML="error";
+        E.style.color="red";
+
+      }
+      if( auteur.innerHTML == ""){
+          alert("qsdfghjklmmlkjhgfdfghjkl")
+      }
+      if( prix.innerHTML == ""){
+          alert("qsdfghjklmmlkjhgfdfghjkl")
+      }
+      if( date.innerHTML == ""){
+          alert("qsdfghjklmmlkjhgfdfghjkl")
+      }
+      if( langue.innerHTML == ""){
+          alert("qsdfghjklmmlkjhgfdfghjkl")
+      }
+      if( type.innerHTML == ""){
+          alert("qsdfghjklmmlkjhgfdfghjkl")
+      }
+    })
+  </script>
+</body>
+</html>
