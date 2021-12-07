@@ -65,15 +65,15 @@
 
         <label for="date de publication">Date de publication</label>
         <input id="date-de-publication" name="date de publication" type="text">
-        <div class="error"></div>
+        <p class="error"></p>
 
         <label for="langue">Langue</label>
         <input id="langue" name="langue" type="text">
-        <div class="error"></div>
+        <p class="error"></p>
 
         <label for="type">Type</label>
         <input id="type" name="type" type="text">
-        <div class="error"></div>
+        <p class="error"></p>
       <button type="submit"> Ajouter</button>
     </form>
   </div>
@@ -88,13 +88,14 @@
     var E=document.getElementById("error");
     var form = document.getElementById('form');
     
+    
 
     form.addEventListener('submit', function eVent(e){
         e.preventDefault();
         
       if( titre.innerHTML == ""){
         E.innerHTML="error";
-        E.style.color="red";
+    };
 
       }
     //   if( auteur.innerHTML == ""){
