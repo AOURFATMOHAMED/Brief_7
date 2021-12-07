@@ -57,11 +57,11 @@
 
         <label for="auteur">Auteur</label>
         <input id="auteur" name="auteur" type="text">
-        <div class="error"></div>
+        <p class="error"></p>
 
         <label for="prix">Prix</label>
         <input id="prix" name="prix" type="text">
-        <div class="error"></div>
+        <p class="error"></p>
 
         <label for="date de publication">Date de publication</label>
         <input id="date-de-publication" name="date de publication" type="text">
@@ -89,28 +89,29 @@
     var form = document.getElementById('form');
     
 
-    form.addEventListener('submit', function eVent(){
-
+    form.addEventListener('submit', function eVent(e){
+        e.preventDefault();
+        
       if( titre.innerHTML == ""){
         E.innerHTML="error";
         E.style.color="red";
 
       }
-      if( auteur.innerHTML == ""){
-          alert("qsdfghjklmmlkjhgfdfghjkl")
-      }
-      if( prix.innerHTML == ""){
-          alert("qsdfghjklmmlkjhgfdfghjkl")
-      }
-      if( date.innerHTML == ""){
-          alert("qsdfghjklmmlkjhgfdfghjkl")
-      }
-      if( langue.innerHTML == ""){
-          alert("qsdfghjklmmlkjhgfdfghjkl")
-      }
-      if( type.innerHTML == ""){
-          alert("qsdfghjklmmlkjhgfdfghjkl")
-      }
+    //   if( auteur.innerHTML == ""){
+    //       alert("qsdfghjklmmlkjhgfdfghjkl")
+    //   }
+    //   if( prix.innerHTML == ""){
+    //       alert("qsdfghjklmmlkjhgfdfghjkl")
+    //   }
+    //   if( date.innerHTML == ""){
+    //       alert("qsdfghjklmmlkjhgfdfghjkl")
+    //   }
+    //   if( langue.innerHTML == ""){
+    //       alert("qsdfghjklmmlkjhgfdfghjkl")
+    //   }
+    //   if( type.innerHTML == ""){
+    //       alert("qsdfghjklmmlkjhgfdfghjkl")
+    //   }
     })
   </script>
 </body>
