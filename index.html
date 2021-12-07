@@ -38,13 +38,7 @@
       padding: 10px;
       width: 100%;
     }
-    .success input {
-      border-color: #09c372;
-    }
-
-    .error input {
-      border-color: #ff3860;
-    }
+  
 
   </style>
   <title>Document</title>
@@ -53,27 +47,27 @@
     <form id="form">
         <label for="titre">Titre</label>
         <input id="titre" name="titre" type="text">
-        <p id="error"></p>
+        <p class="error"></p>
 
         <label for="auteur">Auteur</label>
         <input id="auteur" name="auteur" type="text">
-        <p id="error"></p>
+        <p class="error"></p>
 
         <label for="prix">Prix</label>
         <input id="prix" name="prix" type="text">
-        <p id="error"></p>
+        <p class="error"></p>
 
         <label for="date de publication">Date de publication</label>
-        <input id="date-de-publication" name="date de publication" type="text">
-        <p id="error"></p>
+        <input id="date-de-publication" name="date de publication" type="date">
+        <p class="error"></p>
 
         <label for="langue">Langue</label>
         <input id="langue" name="langue" type="text">
-        <p id="error"></p>
+        <p class="error"></p>
 
         <label for="type">Type</label>
         <input id="type" name="type" type="text">
-        <p id="error"></p>
+        <p class="error"></p>
       <button type="submit"> Ajouter</button>
     </form>
   </div>
@@ -85,26 +79,25 @@
     var date = document.getElementById('date-de-publication');
     var langue = document.getElementById('langue');
     var type = document.getElementById('type');
-    var E=document.getElementById("error");
     var form = document.getElementById('form');
-    
+    var errors = document.getElementsByClassName("error");
     
 
     form.addEventListener('submit', function eVent(e){
         e.preventDefault();
         
-      if( titre.innerHTML == ""){
-        E.innerHTML="error";
+      if( titre.value == ""){
+        errors[0].innerHTML="error";
       };
 
-      if( auteur.innerHTML == ""){
-        E.innerHTML="error";
+      if( auteur.value == ""){
+        errors[1].innerHTML="error";
       };
-      if( prix.innerHTML == ""){
-        E.innerHTML="error";
+      if( prix.value == ""){
+        errors[2].innerHTML="error";
       };
-      if( date.innerHTML == ""){
-        E.innerHTML="error";
+      if( date.value == ""){
+        errors[3].innerHTML="error";
       };
       if( langue.innerHTML == ""){
         E.innerHTML="error";
