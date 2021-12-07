@@ -57,23 +57,23 @@
 
         <label for="auteur">Auteur</label>
         <input id="auteur" name="auteur" type="text">
-        <p class="error"></p>
+        <p id="error"></p>
 
         <label for="prix">Prix</label>
         <input id="prix" name="prix" type="text">
-        <p class="error"></p>
+        <p id="error"></p>
 
         <label for="date de publication">Date de publication</label>
         <input id="date-de-publication" name="date de publication" type="text">
-        <p class="error"></p>
+        <p id="error"></p>
 
         <label for="langue">Langue</label>
         <input id="langue" name="langue" type="text">
-        <p class="error"></p>
+        <p id="error"></p>
 
         <label for="type">Type</label>
         <input id="type" name="type" type="text">
-        <p class="error"></p>
+        <p id="error"></p>
       <button type="submit"> Ajouter</button>
     </form>
   </div>
@@ -95,24 +95,25 @@
         
       if( titre.innerHTML == ""){
         E.innerHTML="error";
-    };
+      };
 
-      }
-    //   if( auteur.innerHTML == ""){
-    //       alert("qsdfghjklmmlkjhgfdfghjkl")
-    //   }
-    //   if( prix.innerHTML == ""){
-    //       alert("qsdfghjklmmlkjhgfdfghjkl")
-    //   }
-    //   if( date.innerHTML == ""){
-    //       alert("qsdfghjklmmlkjhgfdfghjkl")
-    //   }
-    //   if( langue.innerHTML == ""){
-    //       alert("qsdfghjklmmlkjhgfdfghjkl")
-    //   }
-    //   if( type.innerHTML == ""){
-    //       alert("qsdfghjklmmlkjhgfdfghjkl")
-    //   }
+      if( auteur.innerHTML == ""){
+        E.innerHTML="error";
+      };
+      if( prix.innerHTML == ""){
+        E.innerHTML="error";
+      };
+      if( date.innerHTML == ""){
+        E.innerHTML="error";
+      };
+      if( langue.innerHTML == ""){
+        E.innerHTML="error";
+      };
+      if( type.innerHTML == ""){
+        E.innerHTML="error";
+      };
+
+    }
     )
   </script>
 </body>
