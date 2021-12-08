@@ -46,7 +46,14 @@
       padding: 10px;
       width: 109%;
     }
-  
+    #type-input{
+      display: flex;
+      flex-direction: row; 
+    }
+    #type-input label{
+      color: brown;
+    }
+
 
   </style>
   <title>Document</title>
@@ -74,8 +81,8 @@
 
         <label for="langue">Langue</label>
         <p class="error"></p>
-        <select id="langue" name="languages">
-          <option>select a language</option>
+        <select id="langue" name="langue">
+          <option value="sélectionner une langue">sélectionner une langue</option>
           <option value="Arabe">Arabic</option>
           <option value="Anglais">English</option>
           <option value="Francais">French</option>
@@ -84,7 +91,14 @@
         <br>
         <label for="type">Type</label>
         <p class="error"></p>
-        <input id="type" name="type" type="text">
+        <div id="type-input">
+          <input type="radio" id="Roman" name="Selectionner" value="Roman">
+          <label for="Roman">Roman</label><br>
+          <input type="radio" id=" Essai" name="Selectionner" value="Essai">
+          <label for="Essai">Essai</label><br>
+          <input type="radio" id="Bande-Dessinée" name="Selectionner" value="Bande-Dessinée">
+          <label for="Bande-Dessinée">Bande-Dessinée</label>
+       </div>
       <button type="submit"> Ajouter</button>
     </form>
 
@@ -97,6 +111,10 @@
     var type = document.getElementById('type');
     var form = document.getElementById('form');
     var errors = document.getElementsByClassName("error");
+    var roman = document.getElementById('Roman');
+    var essai = document.getElementById('Essai');
+    var bande = document.getElementById('Bande-Dessinée');
+    
     
 
     form.addEventListener('submit', function eVent(e){
@@ -130,10 +148,7 @@
       else{
         auteur.style.borderColor = "green" 
         errors[1].innerHTML="";
-      };
-
-      // //////////////////////////////////////////////////////////////
-     
+      };     
       if(isNaN(prix.value)){
         errors[2].innerHTML="entrer un nombre ";
         errors[2].style.color = 'red';
@@ -156,9 +171,6 @@
         errors[2].innerHTML="";
       
       };
-
-/////////////////////////////////////////////////////////////////////////////////
-
       if( date.value == ""){
         errors[3].innerHTML="Ce champ est OBLIGATOIRE";
         errors[3].style.color = 'red';
@@ -167,17 +179,20 @@
       else {date.style.borderColor = "green"
             errors[3].innerHTML="";
 
-    }
-      if( langue.innerHTML == ""){
-        errors.innerHTML="Selectionner un langue";
+    };
+      if(langue.value == "sélectionner une langue"){
+        errors[4].innerHTML="Selectionner une langue";
         errors[4].style.color = 'red';
+        langue.style.borderColor="red"
+      }
+      else {
+        errors[4].innerHTML="";
+        langue.style.borderColor="green"
+      }
 
-
+      if(!(roman.checked || essai.checked || bande.checked)){
+        errors[5].innerHTML="error";
       };
-      if( type.innerHTML == ""){
-        E.innerHTML="error";
-      };
-
     }
     )
   </script>
