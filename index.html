@@ -110,7 +110,7 @@
        else if( titre.value == ""){
         errors[0].innerHTML="Ce champ est OBLIGATOIRE";
         errors[0].style.color = 'red'
-        prix.style.borderColor = "red" 
+        titre.style.borderColor = "red" 
       }
 
       else{
@@ -125,7 +125,7 @@
        else if( auteur.value == ""){
         errors[1].innerHTML="Ce champ est OBLIGATOIRE";
         errors[1].style.color = 'red';
-        prix.style.borderColor = "red" 
+        auteur.style.borderColor = "red" 
       }
       else{
         auteur.style.borderColor = "green" 
@@ -133,20 +133,16 @@
       };
 
       // //////////////////////////////////////////////////////////////
-      if( prix.value == ""){
-        errors[2].innerHTML="Ce champ est OBLIGATOIRE";
-        errors[2].style.color = 'red';
-        prix.style.borderColor = "red" 
-      }
-      if(!isNaN(prix.value) && prix.value !== "" && prix.value>0){
+     
+      if(!isNaN(prix.value)&& prix.value !== "" && prix.value>0){
         errors[2].innerHTML="valider ";
         errors[2].style.color = 'green';
         prix.style.borderColor = "green" 
       }
       else{
-        prix.style.borderColor = "red" 
+        errors[2].innerHTML=" Ce champ est OBLIGATOIRE";
         errors[2].style.color = 'red';
-        errors[2].innerHTML=" no valider";
+        prix.style.borderColor = "red" 
       };
 
 
