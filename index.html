@@ -38,6 +38,15 @@
       padding: 10px;
       width: 100%;
     }
+
+    select{
+      border: 2px solid #f0f0f0;
+      border-radius: 4px;
+      display: block;
+      font-size: 12px;
+      padding: 10px;
+      width: 109%;
+    }
   
 
   </style>
@@ -46,29 +55,37 @@
 <body>
     <form id="form">
         <label for="titre">Titre</label>
+        <p class="error"></p>
         <input id="titre" name="titre" type="text">
-        <p class="error"></p>
-
+        
         <label for="auteur">Auteur</label>
-        <input id="auteur" name="auteur" type="text">
         <p class="error"></p>
+        <input id="auteur" name="auteur" type="text">
+      
 
         <label for="prix">Prix</label>
-        <input id="prix" name="prix" type="text">
         <p class="error"></p>
+        <input id="prix" name="prix" type="text">
+       
 
         <label for="date de publication">Date de publication</label>
-        <input id="date-de-publication" name="date de publication" type="date">
         <p class="error"></p>
+        <input id="date-de-publication" name="date de publication" type="date">
+      
 
         <label for="langue">Langue</label>
-        <input id="langue" name="langue" type="text">
         <p class="error"></p>
+        <select id="language" name="languages">
+          <option>select a language</option>
+          <option value="Arabe">Arabic</option>
+          <option value="Anglais">English</option>
+          <option value="Francais">French</option>
+      </select>
 
         <label for="type">Type</label>
-        <input id="type" name="type" type="text">
         <p class="error"></p>
-      <button type="submit"> Ajouter</button>
+        <input id="type" name="type" type="text">
+      <button type="submit" onclick="mythqq"> Ajouter</button>
     </form>
   </div>
 
@@ -85,26 +102,32 @@
 
     form.addEventListener('submit', function eVent(e){
         e.preventDefault();
-        
-      if( titre.value == ""){
-        errors[0].innerHTML="error";
+
+        if (titre.value.length > 3){
+        errors[0].innerHTML="ne doit pas dépasser 30 caractères";
+        errors[0].style.color = 'red'
+
+      }
+     else if( titre.value == ""){
+        errors[0].innerHTML="Ce champ est OBLIGATOIRE";
+        errors[0].style.color = 'red'
       };
 
-      if( auteur.value == ""){
-        errors[1].innerHTML="error";
-      };
-      if( prix.value == ""){
-        errors[2].innerHTML="error";
-      };
-      if( date.value == ""){
-        errors[3].innerHTML="error";
-      };
-      if( langue.innerHTML == ""){
-        E.innerHTML="error";
-      };
-      if( type.innerHTML == ""){
-        E.innerHTML="error";
-      };
+      // if( auteur.value == ""){
+      //   errors[1].innerHTML="error";
+      // };
+      // if( prix.value == ""){
+      //   errors[2].innerHTML="error";
+      // };
+      // if( date.value == ""){
+      //   errors[3].innerHTML="error";
+      // };
+      // if( langue.innerHTML == ""){
+      //   E.innerHTML="error";
+      // };
+      // if( type.innerHTML == ""){
+      //   E.innerHTML="error";
+      // };
 
     }
     )
