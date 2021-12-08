@@ -10,6 +10,8 @@
       font-family: 'poppins' sans-serif;
     }
     form{
+      display: flex;
+      flex-direction: column;
       width: 300px;
       margin: 20vh auto 0 auto;
       padding: 60px;
@@ -26,10 +28,7 @@
       border: none;
       border-radius: 4px;
     }
-    form{
-      display: flex;
-      flex-direction: column;
-    }
+    
     form input{
       border: 2px solid #f0f0f0;
       border-radius: 4px;
@@ -88,7 +87,6 @@
         <input id="type" name="type" type="text">
       <button type="submit" onclick="mythqq"> Ajouter</button>
     </form>
-  </div>
 
   <script>
     var titre = document.getElementById('titre');
@@ -109,21 +107,33 @@
         errors[0].style.color = 'red'
 
       }
-     else if( titre.value == ""){
+       else if( titre.value == ""){
         errors[0].innerHTML="Ce champ est OBLIGATOIRE";
         errors[0].style.color = 'red'
+      }
+
+      else{
+        titre.style.borderColor = "green" 
+        errors[0].innerHTML="";
       };
 
-      if (titre.value.length > 3){
-        errors[0].innerHTML="ne doit pas dépasser 30 caractères";
-        errors[0].style.color = 'red'
+      if (auteur.value.length > 3){
+        errors[1].innerHTML="ne doit pas dépasser 30 caractères";
+        errors[1].style.color = 'red'
       }
        else if( auteur.value == ""){
         errors[1].innerHTML="Ce champ est OBLIGATOIRE";
+        errors[1].style.color = 'red';
       };
-      // if( prix.value == ""){
-      //   errors[2].innerHTML="error";
-      // };
+
+      if( prix.value == ""){
+        errors[2].innerHTML="Ce champ est OBLIGATOIRE";
+        errors[2].style.color = 'red';
+      }
+      else if(isNaN(Price.value)){
+        errors[1].innerHTML="Entrer un prix ";
+        errors[1].style.color = 'red';
+      }
       // if( date.value == ""){
       //   errors[3].innerHTML="error";
       // };
