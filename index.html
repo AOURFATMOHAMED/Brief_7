@@ -74,7 +74,7 @@
 
         <label for="langue">Langue</label>
         <p class="error"></p>
-        <select id="language" name="languages">
+        <select id="langue" name="languages">
           <option>select a language</option>
           <option value="Arabe">Arabic</option>
           <option value="Anglais">English</option>
@@ -168,12 +168,15 @@
             errors[3].innerHTML="";
 
     }
-      // if( langue.innerHTML == ""){
-      //   E.innerHTML="error";
-      // };
-      // if( type.innerHTML == ""){
-      //   E.innerHTML="error";
-      // };
+      if( langue.innerHTML == ""){
+        errors.innerHTML="Selectionner un langue";
+        errors[4].style.color = 'red';
+
+
+      };
+      if( type.innerHTML == ""){
+        E.innerHTML="error";
+      };
 
     }
     )
