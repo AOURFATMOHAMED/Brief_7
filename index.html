@@ -134,18 +134,30 @@
 
       // //////////////////////////////////////////////////////////////
      
-      if(!isNaN(prix.value)&& prix.value !== "" && prix.value>0){
-        errors[2].innerHTML="valider ";
-        errors[2].style.color = 'green';
-        prix.style.borderColor = "green" 
+      if(isNaN(prix.value)){
+        errors[2].innerHTML="entrer un nombre ";
+        errors[2].style.color = 'red';
+        prix.style.borderColor = "red" 
       }
-      else{
+      else if(prix.value == ""){
         errors[2].innerHTML=" Ce champ est OBLIGATOIRE";
         errors[2].style.color = 'red';
         prix.style.borderColor = "red" 
+      }
+      else if(prix.value<0){
+        errors[2].innerHTML=" la valeur de prix doit etre postive";
+        errors[2].style.color = 'red';
+        prix.style.borderColor = "red"  
+      }
+
+      else{
+        errors[2].style.color = 'green';
+        prix.style.borderColor = "green" 
+        errors[2].innerHTML="";
+      
       };
 
-
+/////////////////////////////////////////////////////////////////////////////////
 
       if( date.value == ""){
         errors[3].innerHTML="Ce champ est OBLIGATOIRE";
