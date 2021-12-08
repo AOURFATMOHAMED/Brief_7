@@ -102,7 +102,7 @@
     form.addEventListener('submit', function eVent(e){
         e.preventDefault();
 
-        if (titre.value.length > 3){
+        if (titre.value.length > 30){
         errors[0].innerHTML="ne doit pas dépasser 30 caractères";
         errors[0].style.color = 'red'
 
@@ -117,13 +117,17 @@
         errors[0].innerHTML="";
       };
 
-      if (auteur.value.length > 3){
+      if (auteur.value.length > 30){
         errors[1].innerHTML="ne doit pas dépasser 30 caractères";
         errors[1].style.color = 'red'
       }
        else if( auteur.value == ""){
         errors[1].innerHTML="Ce champ est OBLIGATOIRE";
         errors[1].style.color = 'red';
+      }
+      else{
+        auteur.style.borderColor = "green" 
+        errors[1].innerHTML="";
       };
 
       if( prix.value == ""){
@@ -131,9 +135,13 @@
         errors[2].style.color = 'red';
       }
       else if(isNaN(Price.value)){
-        errors[1].innerHTML="Entrer un prix ";
-        errors[1].style.color = 'red';
+        errors[2].innerHTML="Entrer un prix ";
+        errors[2].style.color = 'red';
       }
+      else{
+        prix.style.borderColor = "green" 
+        errors[2].innerHTML="";
+      };
       // if( date.value == ""){
       //   errors[3].innerHTML="error";
       // };
