@@ -85,7 +85,7 @@
         <label for="type">Type</label>
         <p class="error"></p>
         <input id="type" name="type" type="text">
-      <button type="submit" onclick="mythqq"> Ajouter</button>
+      <button type="submit"> Ajouter</button>
     </form>
 
   <script>
@@ -110,6 +110,7 @@
        else if( titre.value == ""){
         errors[0].innerHTML="Ce champ est OBLIGATOIRE";
         errors[0].style.color = 'red'
+        prix.style.borderColor = "red" 
       }
 
       else{
@@ -124,24 +125,31 @@
        else if( auteur.value == ""){
         errors[1].innerHTML="Ce champ est OBLIGATOIRE";
         errors[1].style.color = 'red';
+        prix.style.borderColor = "red" 
       }
       else{
         auteur.style.borderColor = "green" 
         errors[1].innerHTML="";
       };
 
+      // //////////////////////////////////////////////////////////////
       if( prix.value == ""){
         errors[2].innerHTML="Ce champ est OBLIGATOIRE";
         errors[2].style.color = 'red';
+        prix.style.borderColor = "red" 
       }
-      else if(isNaN(Price.value)){
-        errors[2].innerHTML="Entrer un prix ";
-        errors[2].style.color = 'red';
+      if(!isNaN(prix.value) && prix.value !== "" && prix.value>0){
+        errors[2].innerHTML="valider ";
+        errors[2].style.color = 'green';
+        prix.style.borderColor = "green" 
       }
       else{
-        prix.style.borderColor = "green" 
-        errors[2].innerHTML="";
+        prix.style.borderColor = "red" 
+        errors[2].style.color = 'red';
+        errors[2].innerHTML=" no valider";
       };
+
+
       // if( date.value == ""){
       //   errors[3].innerHTML="error";
       // };
