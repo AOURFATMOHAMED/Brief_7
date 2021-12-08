@@ -146,9 +146,16 @@
       };
 
 
-      // if( date.value == ""){
-      //   errors[3].innerHTML="error";
-      // };
+
+      if( date.value == ""){
+        errors[3].innerHTML="Ce champ est OBLIGATOIRE";
+        errors[3].style.color = 'red';
+        date.style.borderColor = "red" 
+      }
+      else {date.style.borderColor = "green"
+            errors[3].innerHTML="";
+
+    }
       // if( langue.innerHTML == ""){
       //   E.innerHTML="error";
       // };
