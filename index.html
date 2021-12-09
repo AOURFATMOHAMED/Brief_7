@@ -94,7 +94,7 @@
         <div id="type-input">
           <input type="radio" id="Roman" name="Selectionner" value="Roman">
           <label for="Roman">Roman</label><br>
-          <input type="radio" id=" Essai" name="Selectionner" value="Essai">
+          <input type="radio" id="Essai" name="Selectionner" value="Essai">
           <label for="Essai">Essai</label><br>
           <input type="radio" id="Bande-Dessinée" name="Selectionner" value="Bande-Dessinée">
           <label for="Bande-Dessinée">Bande-Dessinée</label>
@@ -111,9 +111,9 @@
     var type = document.getElementById('type');
     var form = document.getElementById('form');
     var errors = document.getElementsByClassName("error");
-    var roman = document.getElementById('Roman');
-    var essai = document.getElementById('Essai');
-    var bande = document.getElementById('Bande-Dessinée');
+    const roman = document.getElementById('Roman');
+    const essai = document.getElementById('Essai');
+    const bande = document.getElementById('Bande-Dessinée');
     
     
 
@@ -191,8 +191,12 @@
       }
 
       if(!(roman.checked || essai.checked || bande.checked)){
-        errors[5].innerHTML="error";
-      };
+        errors[5].innerHTML="Coucher votre type d'ouvrage";
+        errors[5].style.color = 'red';
+      }
+      else{
+        errors[5].innerHTML="";
+      }
     }
     )
   </script>
