@@ -100,7 +100,7 @@
         <label for="type">Type</label>
         <p class="error"></p>
         <div id="type-input">
-         <input type="radio"  id="Roman" name="Selectionner" value="Roman">
+         <input type="radio" id="Roman" name="Selectionner" value="Roman">
           <label for="Roman">Roman</label><br>
           <input type="radio" id="Essai" name="Selectionner" value="Essai">
           <label for="Essai">Essai</label><br>
@@ -128,14 +128,14 @@
     var prix = document.getElementById('prix');
     var date = document.getElementById('date-de-publication');
     var langue = document.getElementById('langue');
+    
     var form = document.getElementById('form');
     var errors = document.getElementsByClassName("error");
-    var type = document.getElementById('type-input');
     const roman = document.getElementById('Roman');
     const essai = document.getElementById('Essai');
     const bande = document.getElementById('Bande-Dessinée');
     var table = document.getElementsByTagName('table')[0]
-
+    
     
     
 
@@ -227,7 +227,7 @@
                             <td>${prix.value}</td> 
                             <td>${date.value}</td> 
                             <td>${langue.options[langue.selectedIndex].value}</td> 
-                            <td>${value}</td> 
+                            <td>${essai.value}</td> 
                         </tr>`;
         table.innerHTML+=template;  
     }
