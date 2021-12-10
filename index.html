@@ -129,18 +129,18 @@
     var date = document.getElementById('date-de-publication');
     var langue = document.getElementById('langue');
     var types = document.querySelectorAll('input[name="Selectionner"]');
-    var form = document.getElementById('form');
+    var formulaire = document.getElementById('form');
     var errors = document.getElementsByClassName("error");
     const roman = document.getElementById('Roman');
     const essai = document.getElementById('Essai');
     const bande = document.getElementById('Bande-Dessinée');
-    var table = document.getElementsByTagName('table')[0];
+    var tableau = document.getElementsByTagName('table')[0];
     var selectedValue;
     
     
     
 
-    form.addEventListener('submit', function eVent(e){
+    formulaire.addEventListener('submit', function eVent(e){
         e.preventDefault();
 
         if (titre.value.length > 30){
@@ -221,23 +221,42 @@
         errors[5].innerHTML="";
       }
 
-      for(var type of types){
+      // for(var type of types){
+      //   if(type.checked)
+      //   {
+      //     selectedValue = type.value;
+      //     break;
+      //   }
+      // }
+      // var template = `
+      //                   <tr>
+      //                       <td>${titre.value}</td>
+      //                       <td>${auteur.value}</td>
+      //                       <td>${prix.value}</td> 
+      //                       <td>${date.value}</td> 
+      //                       <td>${langue.options[langue.selectedIndex].value}</td> 
+      //                       <td>${selectedValue}</td> 
+      //                   </tr>`;
+      //   tableau.innerHTML+=template;  
+
+
+
+
+
+      var ligne = tableau.insertRow(-1);
+        ligne.insertCell(0).innerHTML=titre.value;
+        ligne.insertCell(1).innerHTML=auteur.value;
+        ligne.insertCell(2).innerHTML=prix.value;
+        ligne.insertCell(3).innerHTML=date.value;
+        ligne.insertCell(4).innerHTML=langue.options[langue.selectedIndex].value;
+
+        for(var type of types){
         if(type.checked)
         {
           selectedValue = type.value;
-          break;
         }
       }
-      var template = `
-                        <tr>
-                            <td>${auteur.value}</td>
-                            <td>${titre.value}</td>
-                            <td>${prix.value}</td> 
-                            <td>${date.value}</td> 
-                            <td>${langue.options[langue.selectedIndex].value}</td> 
-                            <td>${selectedValue}</td> 
-                        </tr>`;
-        table.innerHTML+=template;  
+        ligne.insertCell(5).innerHTML=selectedValue;
     }
     );
 
