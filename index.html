@@ -100,11 +100,11 @@
         <label for="type">Type</label>
         <p class="error"></p>
         <div id="type-input">
-         <input type="radio" id="Roman" name="Selectionner" value="Roman">
+         <input type="radio" id="Roman" name="Selectionner" value="Roman" class="type">
           <label for="Roman">Roman</label><br>
-          <input type="radio" id="Essai" name="Selectionner" value="Essai">
+          <input type="radio" id="Essai" name="Selectionner" value="Essai" class="type">
           <label for="Essai">Essai</label><br>
-          <input type="radio" id="Bande-Dessinée" name="Selectionner" value="Bande-Dessinée">
+          <input type="radio" id="Bande-Dessinée" name="Selectionner" value="Bande-Dessinée" class="type">
           <label for="Bande-Dessinée">Bande-Dessinée</label>
        </div>
       <button type="submit"> Ajouter</button>
@@ -128,13 +128,14 @@
     var prix = document.getElementById('prix');
     var date = document.getElementById('date-de-publication');
     var langue = document.getElementById('langue');
-    
+    var types = document.querySelectorAll('input[name="Selectionner"]');
     var form = document.getElementById('form');
     var errors = document.getElementsByClassName("error");
     const roman = document.getElementById('Roman');
     const essai = document.getElementById('Essai');
     const bande = document.getElementById('Bande-Dessinée');
-    var table = document.getElementsByTagName('table')[0]
+    var table = document.getElementsByTagName('table')[0];
+    var selectedValue;
     
     
     
@@ -220,6 +221,13 @@
         errors[5].innerHTML="";
       }
 
+      for(var type of types){
+        if(type.checked)
+        {
+          selectedValue = type.value;
+          break;
+        }
+      }
       var template = `
                         <tr>
                             <td>${auteur.value}</td>
@@ -227,7 +235,7 @@
                             <td>${prix.value}</td> 
                             <td>${date.value}</td> 
                             <td>${langue.options[langue.selectedIndex].value}</td> 
-                            <td>${essai.value}</td> 
+                            <td>${selectedValue}</td> 
                         </tr>`;
         table.innerHTML+=template;  
     }
