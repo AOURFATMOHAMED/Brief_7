@@ -55,7 +55,7 @@
     }
 
     th, td {
-            margin-left: ;
+            /* margin-left: ; */
             color: aqua;
             border: 1px solid rgb(255, 254, 254);
             padding: 10px;
@@ -100,7 +100,7 @@
         <label for="type">Type</label>
         <p class="error"></p>
         <div id="type-input">
-          <input type="radio" id="Roman" name="Selectionner" value="Roman">
+         <input type="radio"  id="Roman" name="Selectionner" value="Roman">
           <label for="Roman">Roman</label><br>
           <input type="radio" id="Essai" name="Selectionner" value="Essai">
           <label for="Essai">Essai</label><br>
@@ -128,12 +128,14 @@
     var prix = document.getElementById('prix');
     var date = document.getElementById('date-de-publication');
     var langue = document.getElementById('langue');
-    var type = document.getElementById('type');
     var form = document.getElementById('form');
     var errors = document.getElementsByClassName("error");
+    var type = document.getElementById('type-input');
     const roman = document.getElementById('Roman');
     const essai = document.getElementById('Essai');
     const bande = document.getElementById('Bande-Dessinée');
+    var table = document.getElementsByTagName('table')[0]
+
     
     
 
@@ -217,10 +219,19 @@
       else{
         errors[5].innerHTML="";
       }
+
+      var template = `
+                        <tr>
+                            <td>${auteur.value}</td>
+                            <td>${titre.value}</td>
+                            <td>${prix.value}</td> 
+                            <td>${date.value}</td> 
+                            <td>${langue.options[langue.selectedIndex].value}</td> 
+                            <td>${value}</td> 
+                        </tr>`;
+        table.innerHTML+=template;  
     }
-    )
-
-
+    );
 
 
   </script>
