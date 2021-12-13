@@ -29,6 +29,8 @@
       FONT-SIZE: 26PX;
       TEXT-ALIGN: center;
     }
+
+    /* bouton de validation */
     #form button{
       padding: 10px;
       margin-top: 10px;
@@ -56,6 +58,7 @@
       padding: 10px;
       width: 109%;
     }
+    /* les radios boutons */
     #type-input{
       display: flex;
       flex-direction: row; 
@@ -79,9 +82,10 @@
         color: white;
         background-color: rgb(208 188 165 / 71%);
     }
+
+
   .btn{
       padding: 5px;
-      
       color: white;
       background-color: #545344;
       border: none;
