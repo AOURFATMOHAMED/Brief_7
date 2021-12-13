@@ -252,7 +252,7 @@
     function btnSupr(r)
 {
 var i=r.parentNode.parentNode.rowIndex;
-document.getElementsByTagName('table')[0].deleteRow(i);
+        tableau.deleteRow(i);
 }
 
 // fonction de vider les Inputs apres validation
@@ -275,12 +275,12 @@ function btnEdit(td) {
     auteur.value = selectedRow.cells[1].innerHTML;
     prix.value = selectedRow.cells[2].innerHTML;
     date.value = selectedRow.cells[3].innerHTML;
-    langue.options[langue.selectedIndex].value = selectedRow.cells[4].innerHTML;
+    langue.value = selectedRow.cells[4].innerHTML;
 
-    for(var type of types){
-        if(type.checked)
+    for(var i=0;i<3;i++){
+        if(types[i].value==selectedRow.cells[5].innerHTML)
         {
-          selectedValue = type.value;
+          types[i].checked=true;
         }
       }
 
