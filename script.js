@@ -21,13 +21,13 @@ var selectedValue;
 var validation_ok = true;
 
 
-// les conditions de validation formilaire cotée client
+        // les conditions de validation formilaire cotée client
 
 formulaire.addEventListener('submit', function eVent(e){
     e.preventDefault();
     var validation_ok = true;
 
-    // titre validation
+      // titre validation
 
     if (titre.value.length > 30){
     validation_ok = false;
@@ -182,9 +182,6 @@ resetForm ();
   }
 );
 
-resetBorderColor ();
-
-
 //  fonction de supprimer un ligne dans le tableau
 
 function btnSupr(r)
@@ -208,6 +205,7 @@ radio.checked = false;
 }
 // fonction de reseter les bordure en blanche  
 function resetBorderColor (){
+
 titre.style.borderColor="white";
 auteur.style.borderColor="white";
 prix.style.borderColor="white";
@@ -216,12 +214,21 @@ langue.style.borderColor="white";
 
 }
 
+// fonction de vider les "P" d'errors   
+function resetErrors(){
+ errors[0].innerHTML="";
+ errors[1].innerHTML="";
+ errors[2].innerHTML="";
+ errors[3].innerHTML="";
+ errors[4].innerHTML="";
+ errors[5].innerHTML="";
+ 
+}
 // la fonction d'éditer une ligne de tableau
 
 function btnEdit(td) {
 resetBorderColor ();
-
-
+resetErrors();
 selectedRow = td.parentElement.parentElement;
 titre.value = selectedRow.cells[0].innerHTML;
 auteur.value = selectedRow.cells[1].innerHTML;
