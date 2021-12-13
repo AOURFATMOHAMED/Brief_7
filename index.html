@@ -6,18 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body{
-      background:linear-gradient(to right, #0f2027,#203a43,#2c5364);
+      background-image: url("background2.jpg");
+       background-size: 100%;
       font-family: 'poppins' sans-serif;
     }
     form{
       display: flex;
       flex-direction: column;
       width: 300px;
-      margin: 20vh auto 0 auto;
       padding: 60px;
-      background-color: whitesmoke;
+      background-color:#137eeea8;
       border-radius: 4px;
       font-size: 12px;
+    }
+    form label{
+      color: brown;
+      font-weight: bold;
+
     }
     #form button{
       padding: 10px;
@@ -54,7 +59,38 @@
       color: brown; 
     }
 
-    
+    table{
+      position: absolute;
+      margin-left: 40%;
+      margin-top: -700px;
+    }
+
+    th, td {
+            /* margin-left: ; */
+            color: aqua;
+            border: 1px solid rgb(255, 254, 254);
+            padding: 10px;
+            align-items: center;
+        }
+  .btn{
+      padding: 10px;
+      
+      color: white;
+      background-color: rgb(41, 57,194);
+      border: none;
+      border-radius: 4px;
+  }
+  #btn2{
+    margin-left: 18%;
+
+  }
+  #changerBtn{
+      display: none;
+      color: white;
+      background-color: rgb(77, 194, 41);
+      border: none;
+      border-radius: 4px;
+  }
 
 
   </style>
@@ -84,24 +120,25 @@
         <label for="langue">Langue</label>
         <p class="error"></p>
         <select id="langue" name="langue">
-          <option value="sélectionner une langue">sélectionner une langue</option>
-          <option value="Arabe">Arabic</option>
-          <option value="Anglais">English</option>
-          <option value="Francais">French</option>
+          <option disabled hidden selected value >sélectionner une langue</option>
+          <option value="Arabe">Arabe</option>
+          <option value="Anglais">Anglais</option>
+          <option value="Francais">Francais</option>
       </select>
 
         <br>
         <label for="type">Type</label>
         <p class="error"></p>
         <div id="type-input">
-          <input type="radio" id="Roman" name="Selectionner" value="Roman">
+         <input type="radio" id="Roman" name="Selectionner" value="Roman">
           <label for="Roman">Roman</label><br>
-          <input type="radio" id="Essai" name="Selectionner" value="Essai">
+          <input type="radio" id="Essai" name="Selectionner" value="Essai" >
           <label for="Essai">Essai</label><br>
           <input type="radio" id="Bande-Dessinée" name="Selectionner" value="Bande-Dessinée">
           <label for="Bande-Dessinée">Bande-Dessinée</label>
        </div>
-      <button type="submit"> Ajouter</button>
+      <button type="submit" id="ajouterBtn"> Ajouter</button>
+      <input type="button" onclick="btnChanger()" value="Changer" id="changerBtn" >
     </form>
 
     <table>
@@ -112,7 +149,9 @@
           <th>Date de publication</th>
           <th>Langue</th>
           <th>Type</th>
+          <th>supprimer ou editer votr choix</th>
       </tr>
+
     </table>
 
 
@@ -122,97 +161,246 @@
     var prix = document.getElementById('prix');
     var date = document.getElementById('date-de-publication');
     var langue = document.getElementById('langue');
-    var type = document.getElementById('type');
-    var form = document.getElementById('form');
+    var types = document.querySelectorAll('input[name="Selectionner"]');
+    var formulaire = document.getElementById('form');
     var errors = document.getElementsByClassName("error");
     const roman = document.getElementById('Roman');
     const essai = document.getElementById('Essai');
     const bande = document.getElementById('Bande-Dessinée');
-    
-    
 
-    form.addEventListener('submit', function eVent(e){
+    var validation_ok = true;
+
+    var tableau = document.getElementsByTagName('table')[0];
+    var ChangerBtn = document.getElementById('changerBtn');
+    var AjouterBtn = document.getElementById('ajouterBtn');
+    var selectedValue;
+    
+    
+    // les conditions de validation formilaire cotée client
+
+    formulaire.addEventListener('submit', function eVent(e){
         e.preventDefault();
 
+        // titre validation
         if (titre.value.length > 30){
+          validation_ok = false;
         errors[0].innerHTML="ne doit pas dépasser 30 caractères";
         errors[0].style.color = 'red'
 
       }
        else if( titre.value == ""){
+        validation_ok = false;
         errors[0].innerHTML="Ce champ est OBLIGATOIRE";
         errors[0].style.color = 'red'
         titre.style.borderColor = "red" 
       }
 
       else{
-        titre.style.borderColor = "green" 
+        titre.style.borderColor = "#1a7fe9" 
         errors[0].innerHTML="";
       };
+      
+              // auteur validation
+
 
       if (auteur.value.length > 30){
+        validation_ok = false;
         errors[1].innerHTML="ne doit pas dépasser 30 caractères";
         errors[1].style.color = 'red'
       }
        else if( auteur.value == ""){
+        validation_ok = false;
         errors[1].innerHTML="Ce champ est OBLIGATOIRE";
         errors[1].style.color = 'red';
         auteur.style.borderColor = "red" 
       }
       else{
-        auteur.style.borderColor = "green" 
+        auteur.style.borderColor = "#1a7fe9" 
         errors[1].innerHTML="";
       };     
+
+              // prix validation
+
       if(isNaN(prix.value)){
+        validation_ok = false;
         errors[2].innerHTML="entrer un nombre ";
         errors[2].style.color = 'red';
         prix.style.borderColor = "red" 
       }
       else if(prix.value == ""){
+        validation_ok = false;
         errors[2].innerHTML=" Ce champ est OBLIGATOIRE";
         errors[2].style.color = 'red';
         prix.style.borderColor = "red" 
       }
       else if(prix.value<0){
+        validation_ok = false;
         errors[2].innerHTML=" la valeur de prix doit etre postive";
         errors[2].style.color = 'red';
         prix.style.borderColor = "red"  
       }
 
       else{
-        errors[2].style.color = 'green';
-        prix.style.borderColor = "green" 
+        errors[2].style.color = '#1a7fe9';
+        prix.style.borderColor = "#1a7fe9" 
         errors[2].innerHTML="";
       
       };
+
+              // date du publication  validation
+
       if( date.value == ""){
+        validation_ok = false;
         errors[3].innerHTML="Ce champ est OBLIGATOIRE";
         errors[3].style.color = 'red';
         date.style.borderColor = "red" 
       }
-      else {date.style.borderColor = "green"
+      else {date.style.borderColor = "#1a7fe9"
             errors[3].innerHTML="";
 
     };
-      if(langue.value == "sélectionner une langue"){
+
+            // langue validation
+
+      if(langue.value == ""){
+        validation_ok = false;
         errors[4].innerHTML="Selectionner une langue";
         errors[4].style.color = 'red';
         langue.style.borderColor="red"
       }
       else {
         errors[4].innerHTML="";
-        langue.style.borderColor="green"
+        langue.style.borderColor="#1a7fe9"
       }
+        // types validation
 
       if(!(roman.checked || essai.checked || bande.checked)){
+        validation_ok = false;
         errors[5].innerHTML="Coucher votre type d'ouvrage";
         errors[5].style.color = 'red';
       }
       else{
         errors[5].innerHTML="";
       }
+
+      for(var type of types){
+        if(type.checked)
+        {
+          selectedValue = type.value;
+          break;
+        }
+      }
+      // var template = `
+      //                   <tr>
+      //                       <td>${titre.value}</td>
+      //                       <td>${auteur.value}</td>
+      //                       <td>${prix.value}</td> 
+      //                       <td>${date.value}</td> 
+      //                       <td>${langue.options[langue.selectedIndex].value}</td> 
+      //                       <td>${selectedValue}</td> 
+      //                       <td><button type="submit">Supprimer</button>    <button type="submit"> Editer</button> </td> 
+
+      //                   </tr>`;
+      //   tableau.innerHTML+=template;
+
+      // la validation des données dans le tableau
+
+         if(validation_ok == true)  {
+      var ligne = tableau.insertRow(-1);
+        ligne.insertCell(0).innerHTML=titre.value;
+        ligne.insertCell(1).innerHTML=auteur.value;
+        ligne.insertCell(2).innerHTML=prix.value;
+        ligne.insertCell(3).innerHTML=date.value;
+        ligne.insertCell(4).innerHTML=langue.options[langue.selectedIndex].value;
+        
+        for(var type of types){
+        if(type.checked)
+        {
+          selectedValue = type.value;
+        }
+      }
+        ligne.insertCell(5).innerHTML=selectedValue;
+
+        ligne.insertCell(6).innerHTML= '<button onclick="btnEdit(this)"class="btn">Editer</button>' + '<button onclick="btnSupr(this)"  class="btn"  id="btn2">Supprimer</button>';
+
+        
+    } 
+    resetForm (); 
     }
-    )
+    );
+
+
+  //  fonction de supprimer un ligne dans le tableau
+
+    function btnSupr(r)
+{
+var i=r.parentNode.parentNode.rowIndex;
+document.getElementsByTagName('table')[0].deleteRow(i);
+}
+
+// fonction de vider les Inputs apres validation
+function resetForm () {
+
+  titre.value="";
+  auteur.value="";
+  prix.value="";
+  date.value="";
+  langue.value="";
+}
+
+
+// la fonction d'éditer une ligne de tableau
+function btnEdit(td) {
+
+    selectedRow = td.parentElement.parentElement;
+    titre.value = selectedRow.cells[0].innerHTML;
+    auteur.value = selectedRow.cells[1].innerHTML;
+    prix.value = selectedRow.cells[2].innerHTML;
+    date.value = selectedRow.cells[3].innerHTML;
+    langue.options[langue.selectedIndex].value = selectedRow.cells[4].innerHTML;
+
+    ChangerBtn.style.display="block"; 
+    AjouterBtn.style.display="none"; 
+
+    
+  }
+
+// validation de changement des données
+
+    function  btnChanger(){
+    selectedRow.cells[0].innerHTML =  titre.value;
+    selectedRow.cells[1].innerHTML = auteur.value;
+    selectedRow.cells[2].innerHTML = prix.value;
+    selectedRow.cells[3].innerHTML =  date.value;
+    selectedRow.cells[4].innerHTML =  langue.options[langue.selectedIndex].value;
+
+    for(var type of types){
+        if(type.checked)
+        {
+          selectedValue = type.value;
+        }
+      }
+
+      selectedRow.cells[5].innerHTML=selectedValue;
+
+
+    ChangerBtn.style.display="none"; 
+    AjouterBtn.style.display="block"; 
+    
+    resetForm ();
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
