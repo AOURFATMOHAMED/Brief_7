@@ -218,6 +218,9 @@
       //                   </tr>`;
       //   tableau.innerHTML+=template;
 
+
+      
+
       // la validation des données dans le tableau
 
          if(validation_ok == true)  {
@@ -240,11 +243,13 @@
 
         ligne.insertCell(6).innerHTML= '<button onclick="btnEdit(this)"class="btn">Editer</button>' + '<button onclick="btnSupr(this)"  class="btn"  id="btn2">Supprimer</button>';
 
-        
+       
     } 
     resetForm (); 
-    }
+      }
     );
+
+    resetBorderColor ();
 
 
   //  fonction de supprimer un ligne dans le tableau
@@ -259,12 +264,14 @@ var i=r.parentNode.parentNode.rowIndex;
 
 // fonction de vider les Inputs apres validation
 function resetForm () {
-
+  var radio = document.querySelector('input[type=radio]:checked');
   titre.value="";
   auteur.value="";
   prix.value="";
   date.value="";
   langue.value="";
+  radio.checked = false;
+  
 }
 
 function resetBorderColor (){
@@ -329,11 +336,8 @@ function btnEdit(td) {
 
 
     ChangerBtn.style.display="none"; 
-    AjouterBtn.style.display="block"; 
-    
+    AjouterBtn.style.display="block";
     resetForm ();
-
-
 }
 
   </script>
