@@ -1,6 +1,6 @@
 
     body{
-      background-image: url("background2.jpg");
+      background-image: url("background.png");
        background-size: 100%;
       font-family: 'poppins' sans-serif;
     }
@@ -10,26 +10,28 @@
         width: 300px;
         padding: 46px;
         padding-top: 2px;
-        background-color: #137eeea8;
+        background-color: #a8a47ccc;
         border-radius: 4px;
         font-size: 12px;
+        margin-left: 35PX;
     }
     form label{
-      color: rgb(163, 165, 42);
       font-weight: bold;
+      font-size: 16px;
 
     }
     h3{
-        color: rgb(42, 75, 165);
-        font-weight: bold; 
-         
+      color: rgb(99 72 55);
+      font-weight: bold;
+      FONT-SIZE: 26PX;
+      TEXT-ALIGN: center;
     }
     #form button{
       padding: 10px;
       margin-top: 10px;
       width: 100%;
       color: white;
-      background-color: rgb(41, 57,194);
+      background-color: rgb(99 72 55);
       border: none;
       border-radius: 4px;
     }
@@ -55,30 +57,30 @@
       display: flex;
       flex-direction: row; 
     }
-    #type-input label{
-      color: rgb(172, 47, 47); 
-    }
 
     table{
        display: none; 
       position: absolute;
       margin-left: 40%;
-      margin-top: -600px;
-      background-color: #137eeea8;
+      margin-top: -860px;
+      background-color: #a8a47ccc;
     }
 
     th, td {
-            /* margin-left: ; */
-            color: rgb(255, 30, 0);
-            border: 1px solid rgb(38, 214, 38);
+            color: rgb(29 13 3);
+            border: 1px solid #3f3f3bcc;
             padding: 10px;
             align-items: center;
         }
+    td{
+        color: white;
+        background-color: rgb(208 188 165 / 71%);
+    }
   .btn{
       padding: 5px;
       
       color: white;
-      background-color: rgb(41, 57,194);
+      background-color: #545344;
       border: none;
       border-radius: 4px;
   }
@@ -89,7 +91,8 @@
   #changerBtn{
       display: none;
       color: white;
-      background-color: rgb(77, 194, 41);
+      background-color: rgb(104, 84, 72);
       border: none;
       border-radius: 4px;
+      margin-top: 25px;
   }

@@ -251,8 +251,10 @@
 
     function btnSupr(r)
 {
+  if (confirm('vous voulez vraiment supprimer cette ligne')){
 var i=r.parentNode.parentNode.rowIndex;
         tableau.deleteRow(i);
+      };
 }
 
 // fonction de vider les Inputs apres validation
