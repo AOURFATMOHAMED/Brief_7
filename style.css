@@ -4,19 +4,25 @@
        background-size: 100%;
       font-family: 'poppins' sans-serif;
     }
-    form{
-      display: flex;
-      flex-direction: column;
-      width: 300px;
-      padding: 60px;
-      background-color:#137eeea8;
-      border-radius: 4px;
-      font-size: 12px;
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        padding: 46px;
+        padding-top: 2px;
+        background-color: #137eeea8;
+        border-radius: 4px;
+        font-size: 12px;
     }
     form label{
-      color: brown;
+      color: rgb(163, 165, 42);
       font-weight: bold;
 
+    }
+    h3{
+        color: rgb(42, 75, 165);
+        font-weight: bold; 
+         
     }
     #form button{
       padding: 10px;
@@ -50,10 +56,11 @@
       flex-direction: row; 
     }
     #type-input label{
-      color: brown; 
+      color: rgb(172, 47, 47); 
     }
 
     table{
+       display: none; 
       position: absolute;
       margin-left: 40%;
       margin-top: -600px;
@@ -68,7 +75,7 @@
             align-items: center;
         }
   .btn{
-      padding: 10px;
+      padding: 5px;
       
       color: white;
       background-color: rgb(41, 57,194);

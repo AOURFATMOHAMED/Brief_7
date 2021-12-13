@@ -10,26 +10,27 @@
 </head>
 <body>
     <form id="form">
-        <label for="titre">Titre</label>
+      <h3>Entrer les informations de votre nouvel ouvrage </h3>
+       <h2><label for="titre">Titre</label></h2> 
         <p class="error"></p>
         <input id="titre" name="titre" type="text">
         <br>
-        <label for="auteur">Auteur</label>
+       <h2> <label for="auteur">Auteur</label></h2>
         <p class="error"></p>
         <input id="auteur" name="auteur" type="text">
         <br>
 
-        <label for="prix">Prix</label>
+        <h2><label for="prix">Prix</label></h2>
         <p class="error"></p>
         <input id="prix" name="prix" type="text">
         <br>
 
-        <label for="date de publication">Date de publication</label>
+        <h2><label for="date de publication">Date de publication</label></h2>
         <p class="error"></p>
         <input id="date-de-publication" name="date de publication" type="date">
         <br>
 
-        <label for="langue">Langue</label>
+        <h2><label for="langue">Langue</label></h2>
         <p class="error"></p>
         <select id="langue" name="langue">
           <option disabled hidden selected value >sélectionner une langue</option>
@@ -39,7 +40,7 @@
       </select>
 
         <br>
-        <label for="type">Type</label>
+        <h2><label for="type">Type</label></h2>
         <p class="error"></p>
         <div id="type-input">
          <input type="radio" id="Roman" name="Selectionner" value="Roman">
@@ -80,19 +81,20 @@
     const essai = document.getElementById('Essai');
     const bande = document.getElementById('Bande-Dessinée');
 
-    var validation_ok = true;
+    
 
     var tableau = document.getElementsByTagName('table')[0];
     var ChangerBtn = document.getElementById('changerBtn');
     var AjouterBtn = document.getElementById('ajouterBtn');
     var selectedValue;
+    var validation_ok = true;
     
     
     // les conditions de validation formilaire cotée client
 
     formulaire.addEventListener('submit', function eVent(e){
         e.preventDefault();
-
+        var validation_ok = true;
         // titre validation
         if (titre.value.length > 30){
           validation_ok = false;
@@ -202,6 +204,7 @@
           break;
         }
       }
+    
       // var template = `
       //                   <tr>
       //                       <td>${titre.value}</td>
@@ -218,7 +221,9 @@
       // la validation des données dans le tableau
 
          if(validation_ok == true)  {
-      var ligne = tableau.insertRow(-1);
+
+        tableau.style.display="block";
+        var ligne = tableau.insertRow(-1);
         ligne.insertCell(0).innerHTML=titre.value;
         ligne.insertCell(1).innerHTML=auteur.value;
         ligne.insertCell(2).innerHTML=prix.value;
@@ -259,6 +264,7 @@ function resetForm () {
   date.value="";
   langue.value="";
 }
+
 
 
 // la fonction d'éditer une ligne de tableau
