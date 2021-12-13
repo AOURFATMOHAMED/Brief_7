@@ -174,7 +174,7 @@ formulaire.addEventListener('submit', function eVent(e){
   }
     ligne.insertCell(5).innerHTML=selectedValue;
 
-    ligne.insertCell(6).innerHTML= '<button onclick="btnEdit(this)"class="btn">Editer</button>' + '<button onclick="btnSupr(this)"  class="btn"  id="btn2">Supprimer</button>';
+    ligne.insertCell(6).innerHTML= '<button onclick="btnEdit(this)" id="btnEDIT">Editer</button>' + '<button onclick="btnSupr(this)" id="btnDELETE">Supprimer</button>';
 
    
 } 

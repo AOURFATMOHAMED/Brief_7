@@ -1,22 +1,22 @@
 
     body{
       background-image: url("background.png");
-       background-size: 100%;
+      background-size: 100%;
       font-family: 'poppins' sans-serif;
     }
 
 
     
     form {
-        display: flex;
-        flex-direction: column;
-        width: 300px;
-        padding: 46px;
-        padding-top: 2px;
-        background-color: #a8a47ccc;
-        border-radius: 4px;
-        font-size: 12px;
-        margin-left: 35PX;
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      padding: 46px;
+      padding-top: 2px;
+      background-color: #a8a47ccc;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-left: 35PX;
     }
     form label{
       font-weight: bold;
@@ -65,7 +65,7 @@
     }
 
     table{
-       display: none; 
+      display: none; 
       position: absolute;
       margin-left: 40%;
       margin-top: -860px;
@@ -73,26 +73,32 @@
     }
 
     th, td {
-            color: rgb(29 13 3);
-            border: 1px solid #3f3f3bcc;
-            padding: 10px;
-            align-items: center;
+      color: rgb(29 13 3);
+      border: 1px solid #3f3f3bcc;
+      padding: 10px;
+      align-items: center;
         }
     td{
-        color: white;
-        background-color: rgb(208 188 165 / 71%);
+      color: white;
+      background-color: rgb(208 188 165 / 71%);
     }
 
-
-  .btn{
+ 
+  #btnDELETE{
       padding: 5px;
       color: white;
       background-color: #545344;
       border: none;
       border-radius: 4px;
+      margin-left: 18%;
+
   }
-  #btn2{
-    margin-left: 18%;
+  #btnEDIT{
+      padding: 5px;
+      color: white;
+      background-color: #545344;
+      border: none;
+      border-radius: 4px;
 
   }
   #changerBtn{
