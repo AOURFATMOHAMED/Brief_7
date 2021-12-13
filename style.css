@@ -56,13 +56,14 @@
     table{
       position: absolute;
       margin-left: 40%;
-      margin-top: -700px;
+      margin-top: -600px;
+      background-color: #137eeea8;
     }
 
     th, td {
             /* margin-left: ; */
-            color: aqua;
-            border: 1px solid rgb(255, 254, 254);
+            color: rgb(255, 30, 0);
+            border: 1px solid rgb(38, 214, 38);
             padding: 10px;
             align-items: center;
         }

@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 
-  <title></title>
+  <title>Libraire Jarir </title>
 </head>
 <body>
     <form id="form">
@@ -269,6 +270,17 @@ function btnEdit(td) {
     prix.value = selectedRow.cells[2].innerHTML;
     date.value = selectedRow.cells[3].innerHTML;
     langue.options[langue.selectedIndex].value = selectedRow.cells[4].innerHTML;
+
+    for(var type of types){
+        if(type.checked)
+        {
+          selectedValue = type.value;
+        }
+      }
+
+      selectedValue=selectedRow.cells[5].innerHTML;
+
+
 
     ChangerBtn.style.display="block"; 
     AjouterBtn.style.display="none"; 
