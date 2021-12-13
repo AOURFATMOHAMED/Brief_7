@@ -267,10 +267,23 @@ function resetForm () {
   langue.value="";
 }
 
+function resetBorderColor (){
+  titre.style.borderColor="white";
+  auteur.style.borderColor="white";
+  prix.style.borderColor="white";
+  date.style.borderColor="white";
+  langue.style.borderColor="white";
+
+}
+
+
+
 
 
 // la fonction d'éditer une ligne de tableau
 function btnEdit(td) {
+  resetBorderColor ();
+  
 
     selectedRow = td.parentElement.parentElement;
     titre.value = selectedRow.cells[0].innerHTML;
